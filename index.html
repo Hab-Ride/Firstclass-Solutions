@@ -3,1007 +3,824 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HabRide Nigeria - Safe & Affordable Rides in Your City</title>
+    <title>Firstclass Solutions | IT Services, Consulting & Logistics</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Global Styles */
         :root {
-            --primary: #008753; /* Nigerian green */
-            --primary-light: #e6f5ef;
-            --secondary: #FDBA31; /* Nigerian yellow */
-            --secondary-light: #fff8e6;
-            --dark: #1a1a1a;
-            --dark-light: #333;
-            --light: #f8f9fa;
-            --gray: #e0e0e0;
-            --white: #ffffff;
+            --primary: #0056b3;
+            --secondary: #2c3e50;
+            --accent: #f8f9fa;
+            --text: #333;
+            --light: #fff;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--dark);
+            color: var(--text);
             line-height: 1.6;
-            overflow-x: hidden;
-            background-color: var(--white);
+            background-color: #f5f7fa;
         }
         
-        /* Header */
-        header {
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-        
-        header.scrolled {
-            padding: 5px 0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 5%;
-            max-width: 1400px;
+        .container {
+            width: 90%;
+            max-width: 1200px;
             margin: 0 auto;
         }
         
-        .logo {
-            font-size: 28px;
-            font-weight: 800;
-            color: var(--primary);
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--light);
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #003d82;
+            transform: translateY(-2px);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--secondary);
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        /* Header Styles */
+        header {
+            background: var(--light);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 8px;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
         }
         
         .logo span {
             color: var(--secondary);
         }
         
-        .logo-icon {
-            font-size: 32px;
-        }
-        
-        .nav-links {
+        nav ul {
             display: flex;
-            gap: 20px;
+            list-style: none;
         }
         
-        .nav-links a {
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
             text-decoration: none;
-            color: var(--dark);
-            font-weight: 600;
-            padding: 8px 12px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            position: relative;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
         
-        .nav-links a:hover {
+        nav ul li a:hover {
             color: var(--primary);
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--primary);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        .nav-buttons {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-        
-        .btn {
-            padding: 12px 24px;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            text-align: center;
-            font-size: 16px;
-        }
-        
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-            border: 2px solid var(--primary);
-        }
-        
-        .btn-primary:hover {
-            background-color: #006b43;
-            border-color: #006b43;
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-        
-        .btn-outline:hover {
-            background-color: var(--primary-light);
         }
         
         .mobile-menu-btn {
             display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: var(--dark);
+            font-size: 1.5rem;
             cursor: pointer;
+            color: var(--secondary);
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            height: 100vh;
-            min-height: 700px;
-            display: flex;
-            align-items: center;
-            padding: 0 5%;
-            color: white;
-            position: relative;
-        }
-        
-        .hero-content {
-            max-width: 600px;
-            animation: fadeInUp 1s ease;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80') no-repeat center center/cover;
+            color: var(--light);
+            text-align: center;
+            padding: 160px 0 100px;
+            margin-top: 80px;
         }
         
         .hero h1 {
-            font-size: 52px;
+            font-size: 3rem;
             margin-bottom: 20px;
-            line-height: 1.2;
         }
         
         .hero p {
-            font-size: 20px;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-        
-        .ride-options {
-            display: flex;
-            gap: 15px;
-            margin: 30px 0;
-        }
-        
-        .ride-option {
-            background-color: rgba(255,255,255,0.2);
-            padding: 15px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-        }
-        
-        .ride-option:hover {
-            background-color: rgba(255,255,255,0.3);
-            transform: translateY(-3px);
-        }
-        
-        .ride-option i {
-            font-size: 24px;
-        }
-        
-        .app-badges {
-            display: flex;
-            gap: 15px;
-            margin-top: 30px;
-        }
-        
-        .app-badges img {
-            height: 50px;
-            transition: transform 0.3s ease;
-        }
-        
-        .app-badges img:hover {
-            transform: translateY(-3px);
-        }
-        
-        .scroll-down {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: white;
-            font-size: 24px;
-            animation: bounce 2s infinite;
-            cursor: pointer;
-        }
-        
-        /* Features */
-        .section {
-            padding: 100px 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title h2 {
-            font-size: 36px;
-            margin-bottom: 15px;
-            position: relative;
-            display: inline-block;
-            color: var(--primary);
-        }
-        
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            width: 60px;
-            height: 4px;
-            background: var(--secondary);
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-        
-        .section-title p {
-            font-size: 18px;
-            color: var(--dark-light);
+            font-size: 1.2rem;
             max-width: 700px;
-            margin: 0 auto;
+            margin: 0 auto 30px;
         }
         
-        .features-grid {
+        /* Services Section */
+        .services {
+            background: var(--light);
+        }
+        
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
         
-        .feature-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 40px 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        .service-card {
+            background: var(--accent);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid var(--gray);
+            padding: 30px;
         }
         
-        .feature-card:hover {
+        .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-            border-color: var(--primary-light);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
         
-        .feature-icon {
-            font-size: 48px;
+        .service-card i {
+            font-size: 3rem;
             color: var(--primary);
             margin-bottom: 20px;
-            background-color: var(--primary-light);
-            width: 80px;
-            height: 80px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        /* About Section */
+        .about {
+            background: var(--accent);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .leadership {
+            margin-top: 50px;
+            text-align: center;
+        }
+        
+        .ceo-card {
+            background: var(--light);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .ceo-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 5px solid var(--primary);
+            background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background: var(--light);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: var(--accent);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
             display: flex;
             align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            margin: 0 auto 25px;
         }
         
-        .feature-card h3 {
-            margin-bottom: 15px;
-            font-size: 22px;
-        }
-        
-        /* How It Works */
-        .how-it-works {
-            background-color: var(--light);
-        }
-        
-        .steps {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .step {
-            background-color: white;
-            border-radius: 10px;
-            padding: 40px 30px;
-            width: 280px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid var(--gray);
-        }
-        
-        .step:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        
-        .step-number {
-            background-color: var(--primary);
-            color: white;
+        .testimonial-author img {
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            font-weight: 700;
-            font-size: 20px;
-        }
-        
-        .step h3 {
-            margin-bottom: 15px;
-            font-size: 22px;
-        }
-        
-        /* Ride Types */
-        .ride-types {
-            background-color: var(--primary-light);
-        }
-        
-        .rides-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        
-        .ride-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .ride-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        }
-        
-        .ride-image {
-            width: 100%;
-            height: 200px;
+            margin-right: 15px;
             object-fit: cover;
         }
         
-        .ride-details {
-            padding: 25px;
+        /* Contact Section */
+        .contact {
+            background: var(--accent);
         }
         
-        .ride-details h3 {
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-        
-        .ride-price {
-            font-weight: bold;
-            color: var(--secondary);
-            font-size: 20px;
-            margin: 10px 0;
-        }
-        
-        .ride-features {
-            list-style-type: none;
-            margin-top: 15px;
-        }
-        
-        .ride-features li {
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .ride-features i {
-            color: var(--primary);
-        }
-        
-        /* Cities */
-        .cities-grid {
+        .contact-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
         }
         
-        .city-card {
+        .contact-form {
+            background: var(--light);
+            padding: 30px;
             border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            position: relative;
-            height: 200px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
-        .city-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .city-card:hover .city-image {
-            transform: scale(1.1);
-        }
-        
-        .city-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            padding: 20px;
-            color: white;
-        }
-        
-        .city-overlay h3 {
-            margin-bottom: 5px;
-        }
-        
-        /* CTA Section */
-        .cta {
-            background: linear-gradient(135deg, var(--primary), #006b43);
-            color: white;
-            text-align: center;
-            padding: 80px 5%;
-            border-radius: 10px;
-            margin: 100px 5% 0;
-        }
-        
-        .cta h2 {
-            font-size: 36px;
+        .form-group {
             margin-bottom: 20px;
         }
         
-        .cta p {
-            font-size: 18px;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            opacity: 0.9;
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
         }
         
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
         }
         
-        .btn-white {
-            background-color: white;
-            color: var(--primary);
-            border: 2px solid white;
-        }
-        
-        .btn-white:hover {
-            background-color: transparent;
-            color: white;
-        }
-        
-        .btn-transparent {
-            background-color: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-        
-        .btn-transparent:hover {
-            background-color: white;
-            color: var(--primary);
+        .form-group textarea {
+            min-height: 150px;
         }
         
         /* Footer */
         footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 80px 5% 30px;
-            margin-top: 100px;
+            background: var(--secondary);
+            color: var(--light);
+            padding: 60px 0 30px;
         }
         
-        .footer-content {
+        .footer-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
-            max-width: 1400px;
-            margin: 0 auto;
         }
         
-        .footer-column h3 {
-            margin-bottom: 25px;
-            color: white;
-            font-size: 18px;
-            position: relative;
-            padding-bottom: 10px;
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--light);
         }
         
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            width: 40px;
-            height: 2px;
-            background-color: var(--secondary);
-            bottom: 0;
-            left: 0;
+        .footer-section p,
+        .footer-section li {
+            margin-bottom: 10px;
         }
         
-        .footer-column a {
-            display: block;
-            color: #ccc;
-            margin-bottom: 12px;
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section a {
+            color: #ddd;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: color 0.3s ease;
         }
         
-        .footer-column a:hover {
-            color: white;
-            transform: translateX(5px);
+        .footer-section a:hover {
+            color: var(--light);
         }
         
-        .footer-social {
+        .social-links {
             display: flex;
             gap: 15px;
             margin-top: 20px;
         }
         
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255,255,255,0.1);
-            display: flex;
+        .social-links a {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
             transition: all 0.3s ease;
         }
         
-        .social-icon:hover {
-            background-color: var(--secondary);
+        .social-links a:hover {
+            background: var(--primary);
             transform: translateY(-3px);
         }
         
         .copyright {
             text-align: center;
-            margin-top: 60px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #999;
-            font-size: 14px;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Live Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transition: all 0.3s ease;
         }
         
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0) translateX(-50%);
-            }
-            40% {
-                transform: translateY(-20px) translateX(-50%);
-            }
-            60% {
-                transform: translateY(-10px) translateX(-50%);
-            }
+        .chat-widget:hover {
+            transform: scale(1.1);
+        }
+        
+        .chat-container {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 350px;
+            height: 450px;
+            background: var(--light);
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .chat-header {
+            background: var(--primary);
+            color: var(--light);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .chat-close {
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .chat-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 10px;
         }
         
         /* Responsive Styles */
-        @media (max-width: 1024px) {
-            .hero h1 {
-                font-size: 42px;
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
             }
             
-            .section {
-                padding: 80px 5%;
+            .about-image {
+                order: -1;
             }
         }
         
         @media (max-width: 768px) {
-            .nav-links, .nav-buttons {
-                display: none;
-            }
-            
             .mobile-menu-btn {
                 display: block;
             }
             
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background: var(--light);
+                transition: all 0.3s ease;
+                box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 30px;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
             .hero h1 {
-                font-size: 36px;
-            }
-            
-            .hero p {
-                font-size: 18px;
-            }
-            
-            .section {
-                padding: 70px 5%;
+                font-size: 2.2rem;
             }
             
             .section-title h2 {
-                font-size: 30px;
-            }
-            
-            .cta h2 {
-                font-size: 30px;
-            }
-            
-            .ride-options {
-                flex-direction: column;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 32px;
-            }
-            
-            .app-badges {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .btn {
-                width: 100%;
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header id="header">
-        <nav>
-            <div class="logo">
-                <i class="fas fa-motorcycle logo-icon"></i>
-                <span>Hab</span>Ride
-            </div>
-            <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#ride-types">Ride Options</a>
-                <a href="#how-it-works">How It Works</a>
-                <a href="#cities">Cities</a>
-                <a href="#drivers">Drive With Us</a>
-            </div>
-            <div class="nav-buttons">
-                <a href="#download" class="btn btn-outline">Sign In</a>
-                <a href="#download" class="btn btn-primary">Download</a>
-            </div>
-            <button class="mobile-menu-btn">
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">Firstclass <span>Solutions</span></a>
+            <div class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
-            </button>
-        </nav>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Affordable Rides Across Nigeria</h1>
-            <p>Get where you need to go safely and affordably with HabRide's cars and bike taxis. Download the app and get your first ride at 50% off!</p>
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Firstclass IT Solutions for Your Business</h1>
+            <p>We provide cutting-edge IT services, consulting, and logistics solutions to help your business thrive in the digital age.</p>
+            <a href="#contact" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Comprehensive solutions tailored to your business needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>IT Services</h3>
+                    <p>From network infrastructure to cloud solutions, we provide comprehensive IT services to keep your business running smoothly.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Consulting</h3>
+                    <p>Our expert consultants help you make informed technology decisions that align with your business goals.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-truck-loading"></i>
+                    <h3>Logistics</h3>
+                    <p>Streamline your supply chain with our advanced logistics solutions and optimize your operations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+                <p>Your trusted partner in technology and business solutions</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>We Deliver Firstclass Solutions</h2>
+                    <p>Firstclass Solutions was founded with a simple mission: to provide businesses with the technology solutions they need to succeed in an increasingly digital world.</p>
+                    <p>With over a decade of experience, our team of experts has helped hundreds of companies across various industries transform their operations, enhance their efficiency, and achieve their business objectives.</p>
+                    <p>We believe in building long-term relationships with our clients, understanding their unique challenges, and delivering tailored solutions that drive real results.</p>
+                    <a href="#contact" class="btn">Learn More</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="Our Team">
+                </div>
+            </div>
             
-            <div class="ride-options">
-                <div class="ride-option">
-                    <i class="fas fa-car"></i>
-                    <span>Car Taxis</span>
+            <div class="leadership">
+                <div class="section-title">
+                    <h2>Our Leadership</h2>
+                    <p>Meet our visionary leader</p>
                 </div>
-                <div class="ride-option">
-                    <i class="fas fa-motorcycle"></i>
-                    <span>Bike Taxis</span>
-                </div>
-                <div class="ride-option">
-                    <i class="fas fa-truck"></i>
-                    <span>Delivery</span>
-                </div>
-            </div>
-            
-            <div class="app-badges">
-                <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/1200px-Download_on_the_App_Store_Badge.svg.png" alt="App Store"></a>
-                <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/1200px-Google_Play_Store_badge_EN.svg.png" alt="Google Play"></a>
-            </div>
-        </div>
-        <div class="scroll-down" onclick="document.querySelector('#features').scrollIntoView({ behavior: 'smooth' })">
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </section>
-
-    <!-- Features -->
-    <section class="section" id="features">
-        <div class="section-title">
-            <h2>Why Choose HabRide?</h2>
-            <p>Nigeria's most reliable ride-hailing service with features designed for your needs</p>
-        </div>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-naira-sign"></i>
-                </div>
-                <h3>Affordable Pricing</h3>
-                <p>Enjoy competitive rates that fit your budget, with transparent upfront pricing.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h3>Verified Riders</h3>
-                <p>All our drivers and bike riders pass rigorous background checks.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-bolt"></i>
-                </div>
-                <h3>Quick Pickup</h3>
-                <p>Average wait time of just 3 minutes in major Nigerian cities.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-phone-alt"></i>
-                </div>
-                <h3>24/7 Support</h3>
-                <p>Nigerian-based customer service available anytime you need help.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Ride Types -->
-    <section class="section ride-types" id="ride-types">
-        <div class="section-title">
-            <h2>Our Ride Options</h2>
-            <p>Choose the perfect ride for your needs and budget</p>
-        </div>
-        <div class="rides-grid">
-            <div class="ride-card">
-                <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Car Taxi" class="ride-image">
-                <div class="ride-details">
-                    <h3>HabRide Car</h3>
-                    <div class="ride-price">₦1,500 base fare</div>
-                    <p>Affordable car rides for individuals and small groups</p>
-                    <ul class="ride-features">
-                        <li><i class="fas fa-check"></i> Air conditioned</li>
-                        <li><i class="fas fa-check"></i> Up to 4 passengers</li>
-                        <li><i class="fas fa-check"></i> 24/7 availability</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="ride-card">
-                <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Bike Taxi" class="ride-image">
-                <div class="ride-details">
-                    <h3>HabRide Bike</h3>
-                    <div class="ride-price">₦500 base fare</div>
-                    <p>Fast and affordable bike taxis to beat traffic</p>
-                    <ul class="ride-features">
-                        <li><i class="fas fa-check"></i> Quickest option</li>
-                        <li><i class="fas fa-check"></i> Traffic navigation</li>
-                        <li><i class="fas fa-check"></i> Safety gear provided</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="ride-card">
-                <img src="https://images.unsplash.com/photo-1601758003122-53c40e686a19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Premium Taxi" class="ride-image">
-                <div class="ride-details">
-                    <h3>HabRide Premium</h3>
-                    <div class="ride-price">₦3,000 base fare</div>
-                    <p>Luxury vehicles with professional drivers</p>
-                    <ul class="ride-features">
-                        <li><i class="fas fa-check"></i> High-end vehicles</li>
-                        <li><i class="fas fa-check"></i> Experienced drivers</li>
-                        <li><i class="fas fa-check"></i> Bottled water included</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="ride-card">
-                <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Delivery" class="ride-image">
-                <div class="ride-details">
-                    <h3>HabRide Delivery</h3>
-                    <div class="ride-price">₦800 base fare</div>
-                    <p>Fast and reliable package delivery service</p>
-                    <ul class="ride-features">
-                        <li><i class="fas fa-check"></i> Same-day delivery</li>
-                        <li><i class="fas fa-check"></i> Real-time tracking</li>
-                        <li><i class="fas fa-check"></i> Secure handling</li>
-                    </ul>
+                <div class="ceo-card">
+                    <div class="ceo-image">
+                        <!-- Placeholder for Dr. Akeem O's image -->
+                        <p>Image of Dr. Akeem O: A young man in a formal black suit with colorful geometric bow tie</p>
+                    </div>
+                    <h3>Dr. Akeem O</h3>
+                    <p class="title">Chief Executive Officer</p>
+                    <p>With over 15 years of experience in the technology industry, Dr. Akeem O leads Firstclass Solutions with vision and expertise. His innovative approach to business solutions has positioned our company as an industry leader.</p>
+                    <p>Dr. Akeem holds a Ph.D. in Computer Science from MIT and has been recognized with numerous awards for his contributions to the tech industry.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- How It Works -->
-    <section class="section how-it-works" id="how-it-works">
-        <div class="section-title">
-            <h2>How HabRide Works</h2>
-            <p>Get where you need to go in just a few taps</p>
-        </div>
-        <div class="steps">
-            <div class="step">
-                <div class="step-number">1</div>
-                <h3>Book Your Ride</h3>
-                <p>Enter your destination and choose your ride option (car or bike).</p>
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Success stories from businesses we've helped transform</p>
             </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <h3>Meet Your Driver</h3>
-                <p>See your driver's details and track their arrival in real-time.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <h3>Enjoy Your Ride</h3>
-                <p>Sit back and relax while we take you to your destination.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">4</div>
-                <h3>Rate Your Trip</h3>
-                <p>Share your experience to help us improve our service.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Cities Section -->
-    <section class="section" id="cities">
-        <div class="section-title">
-            <h2>Available Cities</h2>
-            <p>HabRide is available in these major Nigerian cities</p>
-        </div>
-        <div class="cities-grid">
-            <div class="city-card">
-                <img src="https://images.unsplash.com/photo-1621786033628-47e0e50e9aec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Lagos" class="city-image">
-                <div class="city-overlay">
-                    <h3>Lagos</h3>
-                    <p>Available now</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"Firstclass Solutions transformed our IT infrastructure, resulting in a 40% increase in operational efficiency. Their team was professional and delivered beyond our expectations."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client">
+                        <div>
+                            <h4>Michael Johnson</h4>
+                            <p>CTO, TechCorp Inc.</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="city-card">
-                <img src="https://images.unsplash.com/photo-1621786033180-00cc5b7f6981?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Abuja" class="city-image">
-                <div class="city-overlay">
-                    <h3>Abuja</h3>
-                    <p>Available now</p>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"The logistics solutions provided by Firstclass Solutions helped us reduce costs by 25% while improving delivery times. They truly understand our industry's challenges."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client">
+                        <div>
+                            <h4>Sarah Williams</h4>
+                            <p>Operations Director, Global Goods</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="city-card">
-                <img src="https://images.unsplash.com/photo-1621786033235-1af2297553f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Port Harcourt" class="city-image">
-                <div class="city-overlay">
-                    <h3>Port Harcourt</h3>
-                    <p>Available now</p>
-                </div>
-            </div>
-            <div class="city-card">
-                <img src="https://images.unsplash.com/photo-1621786033564-8fb1a5f9a5a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Kano" class="city-image">
-                <div class="city-overlay">
-                    <h3>Kano</h3>
-                    <p>Available now</p>
-                </div>
-            </div>
-            <div class="city-card">
-                <img src="https://images.unsplash.com/photo-1621786033824-5a0a588c3a9d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Ibadan" class="city-image">
-                <div class="city-overlay">
-                    <h3>Ibadan</h3>
-                    <p>Coming soon</p>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"Under Dr. Akeem's leadership, Firstclass Solutions helped us navigate a complex digital transformation. We're now better positioned to compete in our market."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/62.jpg" alt="Client">
+                        <div>
+                            <h4>Robert Chen</h4>
+                            <p>CEO, Innovate Ltd.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta" id="download">
-        <h2>Ready to Ride Across Nigeria?</h2>
-        <p>Join thousands of Nigerians who choose HabRide for their daily commute and travel needs.</p>
-        <div class="cta-buttons">
-            <a href="#" class="btn btn-white">Download the App</a>
-            <a href="#" class="btn btn-transparent">Sign Up as Driver</a>
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch to discuss how we can help your business</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>Have questions about our services or ready to get started? Reach out to us using the contact form or through our contact details below.</p>
+                    <div class="contact-details">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Business Ave, Suite 500, New York, NY 10001</p>
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                        <p><i class="fas fa-envelope"></i> info@firstclasssolutions.com</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-column">
-                <h3>Company</h3>
-                <a href="#">About Us</a>
-                <a href="#">Careers</a>
-                <a href="#">Blog</a>
-                <a href="#">Press</a>
-                <a href="#">Investors</a>
-            </div>
-            <div class="footer-column">
-                <h3>Products</h3>
-                <a href="#">Ride</a>
-                <a href="#">Bike Taxi</a>
-                <a href="#">Delivery</a>
-                <a href="#">Business</a>
-                <a href="#">Car Rentals</a>
-            </div>
-            <div class="footer-column">
-                <h3>Support</h3>
-                <a href="#">Help Center</a>
-                <a href="#">Safety</a>
-                <a href="#">FAQs</a>
-                <a href="#">Contact Us</a>
-            </div>
-            <div class="footer-column">
-                <h3>Connect</h3>
-                <a href="#">Twitter</a>
-                <a href="#">Facebook</a>
-                <a href="#">Instagram</a>
-                <a href="#">LinkedIn</a>
-                <div class="footer-social">
-                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        <div class="container footer-container">
+            <div class="footer-section">
+                <h3>Firstclass Solutions</h3>
+                <p>Providing exceptional IT services, consulting, and logistics solutions to businesses worldwide.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">IT Services</a></li>
+                    <li><a href="#">Consulting</a></li>
+                    <li><a href="#">Logistics</a></li>
+                    <li><a href="#">Cloud Solutions</a></li>
+                    <li><a href="#">Cybersecurity</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Subscribe to our newsletter to receive updates on our latest services and industry insights.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <button type="submit" class="btn">Subscribe</button>
+                </form>
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2023 HabRide Nigeria. All rights reserved.</p>
-            <div style="margin-top: 15px;">
-                <a href="#" style="color: #999; margin: 0 10px;">Privacy Policy</a>
-                <a href="#" style="color: #999; margin: 0 10px;">Terms of Service</a>
-                <a href="#" style="color: #999; margin: 0 10px;">Cookies</a>
-            </div>
+            <p>&copy; 2023 Firstclass Solutions. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <!-- Live Chat Widget -->
+    <div class="chat-widget">
+        <i class="fas fa-comments"></i>
+    </div>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h3>Chat with Us</h3>
+            <div class="chat-close">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <div class="chat-messages">
+            <p>Hello! How can we help you today?</p>
+        </div>
+        <div class="chat-input">
+            <input type="text" placeholder="Type your message...">
+            <button class="btn">Send</button>
+        </div>
+    </div>
+
     <script>
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
         });
         
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
             });
         });
         
-        // Mobile menu toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        mobileMenuBtn.addEventListener('click', function() {
-            alert('Mobile menu would open here in a complete implementation');
+        // Live Chat Toggle
+        const chatWidget = document.querySelector('.chat-widget');
+        const chatContainer = document.querySelector('.chat-container');
+        const chatClose = document.querySelector('.chat-close');
+        
+        chatWidget.addEventListener('click', () => {
+            chatContainer.style.display = 'flex';
+        });
+        
+        chatClose.addEventListener('click', () => {
+            chatContainer.style.display = 'none';
+        });
+        
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            contactForm.reset();
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
         });
     </script>
 </body>
