@@ -1,827 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Firstclass Solutions | IT Services, Consulting & Logistics</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Global Styles */
-        :root {
-            --primary: #0056b3;
-            --secondary: #2c3e50;
-            --accent: #f8f9fa;
-            --text: #333;
-            --light: #fff;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            color: var(--text);
-            line-height: 1.6;
-            background-color: #f5f7fa;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: var(--primary);
-            color: var(--light);
-            padding: 12px 24px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .btn:hover {
-            background: #003d82;
-            transform: translateY(-2px);
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-            color: var(--secondary);
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-        
-        .section-title p {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto;
-            color: #666;
-        }
-        
-        section {
-            padding: 80px 0;
-        }
-        
-        /* Header Styles */
-        header {
-            background: var(--light);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-        }
-        
-        .logo span {
-            color: var(--secondary);
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 30px;
-        }
-        
-        nav ul li a {
-            text-decoration: none;
-            color: var(--secondary);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        
-        nav ul li a:hover {
-            color: var(--primary);
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--secondary);
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80') no-repeat center center/cover;
-            color: var(--light);
-            text-align: center;
-            padding: 160px 0 100px;
-            margin-top: 80px;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-        
-        /* Services Section */
-        .services {
-            background: var(--light);
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .service-card {
-            background: var(--accent);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-align: center;
-            padding: 30px;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .service-card i {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--secondary);
-        }
-        
-        /* About Section */
-        .about {
-            background: var(--accent);
-        }
-        
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        
-        .about-image img {
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .about-text h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            color: var(--secondary);
-        }
-        
-        .leadership {
-            margin-top: 50px;
-            text-align: center;
-        }
-        
-        .ceo-card {
-            background: var(--light);
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .ceo-image {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-            border: 5px solid var(--primary);
-            background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 1.2rem;
-            text-align: center;
-            padding: 20px;
-        }
-        
-        /* Testimonials Section */
-        .testimonials {
-            background: var(--light);
-        }
-        
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .testimonial-card {
-            background: var(--accent);
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-        
-        .testimonial-author img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 15px;
-            object-fit: cover;
-        }
-        
-        /* Contact Section */
-        .contact {
-            background: var(--accent);
-        }
-        
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-        
-        .contact-form {
-            background: var(--light);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        
-        .form-group textarea {
-            min-height: 150px;
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--secondary);
-            color: var(--light);
-            padding: 60px 0 30px;
-        }
-        
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-        }
-        
-        .footer-section h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: var(--light);
-        }
-        
-        .footer-section p,
-        .footer-section li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-section a {
-            color: #ddd;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-section a:hover {
-            color: var(--light);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-        
-        .copyright {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Live Chat Widget */
-        .chat-widget {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: var(--primary);
-            color: var(--light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            z-index: 999;
-            transition: all 0.3s ease;
-        }
-        
-        .chat-widget:hover {
-            transform: scale(1.1);
-        }
-        
-        .chat-container {
-            position: fixed;
-            bottom: 100px;
-            right: 30px;
-            width: 350px;
-            height: 450px;
-            background: var(--light);
-            border-radius: 10px;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-            z-index: 999;
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-        }
-        
-        .chat-header {
-            background: var(--primary);
-            color: var(--light);
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .chat-close {
-            cursor: pointer;
-            font-size: 1.2rem;
-        }
-        
-        .chat-messages {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-        }
-        
-        .chat-input {
-            display: flex;
-            padding: 10px;
-            border-top: 1px solid #ddd;
-        }
-        
-        .chat-input input {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin-right: 10px;
-        }
-        
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .about-content,
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .about-image {
-                order: -1;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            nav {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 80%;
-                height: calc(100vh - 80px);
-                background: var(--light);
-                transition: all 0.3s ease;
-                box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1);
-            }
-            
-            nav.active {
-                left: 0;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                padding: 30px;
-            }
-            
-            nav ul li {
-                margin: 15px 0;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apogee Professionals | Advisory & Assurance Services</title>
+  <meta name="description" content="Integrated Audit, Tax, Business Advisory, HR, and Investment solutions for sustainable growth." />
+
+  <!-- Favicon (to be added later) -->
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Google Fonts (Example: Lato + Merriweather) -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons (Optional CDN) -->
+  <script src="https://kit.fontawesome.com/a0b8e9e8d2.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <a href="#" class="logo">Firstclass <span>Solutions</span></a>
-            <div class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <h1>Firstclass IT Solutions for Your Business</h1>
-            <p>We provide cutting-edge IT services, consulting, and logistics solutions to help your business thrive in the digital age.</p>
-            <a href="#contact" class="btn">Get Started</a>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Services</h2>
-                <p>Comprehensive solutions tailored to your business needs</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-laptop-code"></i>
-                    <h3>IT Services</h3>
-                    <p>From network infrastructure to cloud solutions, we provide comprehensive IT services to keep your business running smoothly.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    <h3>Consulting</h3>
-                    <p>Our expert consultants help you make informed technology decisions that align with your business goals.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-truck-loading"></i>
-                    <h3>Logistics</h3>
-                    <p>Streamline your supply chain with our advanced logistics solutions and optimize your operations.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>About Us</h2>
-                <p>Your trusted partner in technology and business solutions</p>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>We Deliver Firstclass Solutions</h2>
-                    <p>Firstclass Solutions was founded with a simple mission: to provide businesses with the technology solutions they need to succeed in an increasingly digital world.</p>
-                    <p>With over a decade of experience, our team of experts has helped hundreds of companies across various industries transform their operations, enhance their efficiency, and achieve their business objectives.</p>
-                    <p>We believe in building long-term relationships with our clients, understanding their unique challenges, and delivering tailored solutions that drive real results.</p>
-                    <a href="#contact" class="btn">Learn More</a>
-                </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="Our Team">
-                </div>
-            </div>
-            
-            <div class="leadership">
-                <div class="section-title">
-                    <h2>Our Leadership</h2>
-                    <p>Meet our visionary leader</p>
-                </div>
-                <div class="ceo-card">
-                    <div class="ceo-image">
-                        <!-- Placeholder for Dr. Akeem O's image -->
-                        <p>Image of Dr. Akeem O: A young man in a formal black suit with colorful geometric bow tie</p>
-                    </div>
-                    <h3>Dr. Akeem O</h3>
-                    <p class="title">Chief Executive Officer</p>
-                    <p>With over 15 years of experience in the technology industry, Dr. Akeem O leads Firstclass Solutions with vision and expertise. His innovative approach to business solutions has positioned our company as an industry leader.</p>
-                    <p>Dr. Akeem holds a Ph.D. in Computer Science from MIT and has been recognized with numerous awards for his contributions to the tech industry.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>What Our Clients Say</h2>
-                <p>Success stories from businesses we've helped transform</p>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        <p>"Firstclass Solutions transformed our IT infrastructure, resulting in a 40% increase in operational efficiency. Their team was professional and delivered beyond our expectations."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client">
-                        <div>
-                            <h4>Michael Johnson</h4>
-                            <p>CTO, TechCorp Inc.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        <p>"The logistics solutions provided by Firstclass Solutions helped us reduce costs by 25% while improving delivery times. They truly understand our industry's challenges."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client">
-                        <div>
-                            <h4>Sarah Williams</h4>
-                            <p>Operations Director, Global Goods</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        <p>"Under Dr. Akeem's leadership, Firstclass Solutions helped us navigate a complex digital transformation. We're now better positioned to compete in our market."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/men/62.jpg" alt="Client">
-                        <div>
-                            <h4>Robert Chen</h4>
-                            <p>CEO, Innovate Ltd.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Contact Us</h2>
-                <p>Get in touch to discuss how we can help your business</p>
-            </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Get In Touch</h3>
-                    <p>Have questions about our services or ready to get started? Reach out to us using the contact form or through our contact details below.</p>
-                    <div class="contact-details">
-                        <p><i class="fas fa-map-marker-alt"></i> 123 Business Ave, Suite 500, New York, NY 10001</p>
-                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
-                        <p><i class="fas fa-envelope"></i> info@firstclasssolutions.com</p>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <h3>Send Us a Message</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container footer-container">
-            <div class="footer-section">
-                <h3>Firstclass Solutions</h3>
-                <p>Providing exceptional IT services, consulting, and logistics solutions to businesses worldwide.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Services</h3>
-                <ul>
-                    <li><a href="#">IT Services</a></li>
-                    <li><a href="#">Consulting</a></li>
-                    <li><a href="#">Logistics</a></li>
-                    <li><a href="#">Cloud Solutions</a></li>
-                    <li><a href="#">Cybersecurity</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Newsletter</h3>
-                <p>Subscribe to our newsletter to receive updates on our latest services and industry insights.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="email" placeholder="Your Email" required>
-                    </div>
-                    <button type="submit" class="btn">Subscribe</button>
-                </form>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2023 Firstclass Solutions. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Live Chat Widget -->
-    <div class="chat-widget">
-        <i class="fas fa-comments"></i>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <img src="images/logo.svg" alt="Apogee Professionals Logo" width="180" />
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pages/about/index.html">About</a></li>
+          <li><a href="pages/services/business-advisory.html">Services</a></li>
+          <li><a href="#insights">Insights</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
     </div>
-    <div class="chat-container">
-        <div class="chat-header">
-            <h3>Chat with Us</h3>
-            <div class="chat-close">
-                <i class="fas fa-times"></i>
-            </div>
-        </div>
-        <div class="chat-messages">
-            <p>Hello! How can we help you today?</p>
-        </div>
-        <div class="chat-input">
-            <input type="text" placeholder="Type your message...">
-            <button class="btn">Send</button>
-        </div>
-    </div>
+  </header>
 
-    <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const nav = document.querySelector('nav');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            nav.classList.toggle('active');
-        });
-        
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                nav.classList.remove('active');
-            });
-        });
-        
-        // Live Chat Toggle
-        const chatWidget = document.querySelector('.chat-widget');
-        const chatContainer = document.querySelector('.chat-container');
-        const chatClose = document.querySelector('.chat-close');
-        
-        chatWidget.addEventListener('click', () => {
-            chatContainer.style.display = 'flex';
-        });
-        
-        chatClose.addEventListener('click', () => {
-            chatContainer.style.display = 'none';
-        });
-        
-        // Form Submission
-        const contactForm = document.getElementById('contactForm');
-        
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
-            contactForm.reset();
-        });
-        
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Empowering Growth Through Expert Advisory</h1>
+      <p class="subtitle">
+        Integrated Audit, Tax, Finance, HR & Investment solutions tailored to your success.
+      </p>
+      <a href="pages/contact.html" class="btn btn-primary">Schedule a Consultation</a>
+    </div>
+  </section>
+
+  <!-- Services Preview -->
+  <section class="services-preview">
+    <div class="container">
+      <h2>Our Core Services</h2>
+      <div class="cards">
+        <div class="card">
+          <i class="fas fa-balance-scale"></i>
+          <h3>Audit & Assurance</h3>
+          <p>Independent audits and compliance reviews to strengthen trust and transparency.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-chart-line"></i>
+          <h3>Business Advisory</h3>
+          <p>Strategic guidance to optimize operations, drive growth, and manage change.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-money-bill-wave"></i>
+          <h3>Tax Advisory</h3>
+          <p>Proactive tax planning and cross-border strategies to ensure compliance and efficiency.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-users"></i>
+          <h3>HR Management</h3>
+          <p>Modern human capital solutions from recruitment to performance strategy.</p>
+        </div>
+      </div>
+      <a href="pages/services/index.html" class="btn btn-secondary">View All Services</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <strong>Apogee Professionals</strong>
+          <p>Delivering excellence in advisory services since 20XX.</p>
+        </div>
+        <div class="footer-col">
+          <strong>Quick Links</strong>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pages/about/index.html">About Us</a></li>
+            <li><a href="pages/services/index.html">Services</a></li>
+            <li><a href="#insights">Insights</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <strong>Contact</strong>
+          <address>
+            Email: <a href="mailto:info@apogeeprofessionals.com">info@apogeeprofessionals.com</a><br>
+            Phone: +1 (555) 123-4567<br>
+            Location: City, Country
+          </address>
+        </div>
+      </div>
+      <hr />
+      <p class="copyright">&copy; 2025 Apogee Professionals. All rights reserved. | <a href="/privacy">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
 </body>
 </html>
